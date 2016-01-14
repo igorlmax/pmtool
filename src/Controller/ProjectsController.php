@@ -111,4 +111,42 @@ class ProjectsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+    
+    /*
+     * Method for searching tags
+     */
+    public function tags(){
+    	
+    	$this->paginate = [
+            'contain' => ['Users']
+      ];
+    	
+    	$this->set('projects', $this->paginate($this->Projects));
+    	
+    	$this->set('_serialize', ['projects']);
+    	
+    	$projects = $this->Projects->find('tagged', [
+    			'tags' => $tags
+    	]);
+    	
+    	// Pass to view
+    	$this->set([
+    			'projects' => $projects,
+    			'tags' => $tags
+    	]);
+    }
+    
+    // Search method
+    public function search(){
+    	$tag = $this->request->data('searchtag');
+    	return $this->redirect('/projects/tagged/' . $tag);
+    }
 }
+
+
+
+
+
+
+
+

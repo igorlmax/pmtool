@@ -2,8 +2,8 @@
 <?php echo $this->Element('actions', array('type' => 'Project', 'typePlural' => 'Projects')); ?>
 </nav>
 <div class="projects index large-9 medium-8 columns content">
-    <h3><?= __('Projects') ?></h3>
-	  <?php echo $this->Element('searchtagform'); ?>
+    <h3>Projects by tag: <?php echo $this->Text->toList($tags); ?></h3>
+    	  <?php echo $this->Element('searchtagform'); ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

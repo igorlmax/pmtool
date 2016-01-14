@@ -43,8 +43,6 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('Project Id') ?></th>
-                <th><?= __('User Id') ?></th>
                 <th><?= __('Title') ?></th>
                 <th><?= __('Body') ?></th>
                 <th><?= __('Created') ?></th>
@@ -54,8 +52,6 @@
             <?php foreach ($user->notes as $notes): ?>
             <tr>
                 <td><?= h($notes->id) ?></td>
-                <td><?= h($notes->project_id) ?></td>
-                <td><?= h($notes->user_id) ?></td>
                 <td><?= h($notes->title) ?></td>
                 <td><?= h($notes->body) ?></td>
                 <td><?= h($notes->created) ?></td>
@@ -79,29 +75,17 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('User Id') ?></th>
-                <th><?= __('Client Id') ?></th>
-                <th><?= __('Category Id') ?></th>
                 <th><?= __('Title') ?></th>
-                <th><?= __('Description') ?></th>
-                <th><?= __('Url') ?></th>
                 <th><?= __('Launch') ?></th>
                 <th><?= __('Created') ?></th>
-                <th><?= __('Modified') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($user->projects as $projects): ?>
             <tr>
                 <td><?= h($projects->id) ?></td>
-                <td><?= h($projects->user_id) ?></td>
-                <td><?= h($projects->client_id) ?></td>
-                <td><?= h($projects->category_id) ?></td>
                 <td><?= h($projects->title) ?></td>
-                <td><?= h($projects->description) ?></td>
-                <td><?= h($projects->url) ?></td>
                 <td><?= h($projects->launch) ?></td>
                 <td><?= h($projects->created) ?></td>
-                <td><?= h($projects->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Projects', 'action' => 'view', $projects->id]) ?>
 
