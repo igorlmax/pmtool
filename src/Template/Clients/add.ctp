@@ -1,10 +1,5 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Clients'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
-    </ul>
+<?php echo $this->Element('actions', array('type' => 'Client', 'typePlural' => 'Clients')); ?>
 </nav>
 <div class="clients form large-9 medium-8 columns content">
     <?= $this->Form->create($client) ?>
