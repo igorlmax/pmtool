@@ -20,7 +20,7 @@
             <tr>
                 <td><?= $this->Number->format($note->id) ?></td>
                 <td><?= $note->has('project') ? $this->Html->link($note->project->title, ['controller' => 'Projects', 'action' => 'view', $note->project->id]) : '' ?></td>
-                <td><?= $note->has('user') ? $this->Html->link($note->user->id, ['controller' => 'Users', 'action' => 'view', $note->user->id]) : '' ?></td>
+                <td><?= $note->has('user') ? $this->Html->link($note->user->first_name, ['controller' => 'Users', 'action' => 'view', $note->user->id]) : '' ?></td>
                 <td><?= h($note->title) ?></td>
                 <td><?= h($note->created) ?></td>
                 <td><?= h($note->modified) ?></td>

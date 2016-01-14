@@ -20,8 +20,8 @@
             <?php foreach ($projects as $project): ?>
             <tr>
                 <td><?= $this->Number->format($project->id) ?></td>
-                <td><?= $project->has('user') ? $this->Html->link($project->user->id, ['controller' => 'Users', 'action' => 'view', $project->user->id]) : '' ?></td>
-                <td><?= $project->has('client') ? $this->Html->link($project->client->id, ['controller' => 'Clients', 'action' => 'view', $project->client->id]) : '' ?></td>
+                <td><?= $project->has('user') ? $this->Html->link($project->user->first_name, ['controller' => 'Users', 'action' => 'view', $project->user->id]) : '' ?></td>
+                <td><?= $project->has('client') ? $this->Html->link($project->client->company, ['controller' => 'Clients', 'action' => 'view', $project->client->id]) : '' ?></td>
                 <td><?= $project->has('category') ? $this->Html->link($project->category->name, ['controller' => 'Categories', 'action' => 'view', $project->category->id]) : '' ?></td>
                 <td><?= h($project->title) ?></td>
                 <td><?= h($project->launch) ?></td>
