@@ -16,7 +16,7 @@ Router::scope('/projects',
 });
 
 Router::scope('/', function ($routes) {
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Projects', 'action' => 'index', 'home']);
 
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 

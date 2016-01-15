@@ -113,7 +113,8 @@ class UsersController extends AppController
     		
     		if($user){
     			$this->Auth->setUser($user);
-    			return $this->redirect($this->Auth->redirectUrl());
+    			return $this->redirect(['controller' => 'projects', 'action' => 'index']);
+    			// return $this->redirect($this->Auth->redirectUrl());
     		}
     		
     		$this->Flash->error('Incorrect Login');
@@ -128,6 +129,30 @@ class UsersController extends AppController
     	$this->Flash->success('You are now logged out');
     	
     	return $this->redirect($this->Auth->logout());
+    }
+    
+    /*
+     * Register
+     */
+    public function register()
+    {
+    	$user = $this->Users->newEntity();
+    	if ($this->request->is('post')) {
+    		$user = $this->Users->patchEntity($user, $this->request->data);
+    		if ($this->Users->save($user)) {
+    			$this->Flash->success(__('You are now registred, please login'));
+    			return $this->redirect(['action' => 'login']);
+    		} else {
+    			$this->Flash->error(__('Could Not Register'));
+    		}
+    	}
+    	$this->set(compact('user'));
+    	$this->set('_serialize', ['user']);
+    }
+    
+    // beforeFilter Method
+    public function beforeFilter(\Cake\Event\Event $event){
+    	$this->Auth->allow(['register']);
     }
 }
 

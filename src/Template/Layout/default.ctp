@@ -35,6 +35,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
+				<?php if($loggedin) : ?>
 				<li><?php echo $this->Html->link(__('Logout'), ['controller' => 'users', 'action' => 'logout']); ?></li>
 			</ul>
 
@@ -48,6 +49,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<li><?php echo $this->Html->link(__('Notes'), ['controller' => 'notes', 'action' => 'index']); ?></li>
 				<li><?php echo $this->Html->link(__('Tags'), ['controller' => 'tags', 'action' => 'index']); ?></li>
 				<li><?php echo $this->Html->link(__('Users'), ['controller' => 'users', 'action' => 'index']); ?></li>
+				<?php else : ?>
+					<li><?php echo $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login']); ?></li>
+					<li><?php echo $this->Html->link(__('Register'), ['controller' => 'users', 'action' => 'register']); ?></li>
+				<?php endif; ?>
 			</ul>
 		</section>
 	</nav>
